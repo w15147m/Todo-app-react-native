@@ -1,0 +1,299 @@
+# React Native Utility Styles - Quick Reference
+
+## Import Names
+```javascript
+// Import what you need
+import { 
+  bg, text, border, colorPalette,     // Colors
+  fb, flex,                           // Flexbox
+  p, m,                              // Spacing (Padding & Margin)
+  pos, inset, z, positioned,         // Positioning
+  w, h, wpx, hpx, size,             // Dimensions
+  fs, fw, ta, tt, td, lh,           // Typography
+  bw, br,                           // Borders
+  shadow,                           // Shadows
+  opacity, overflow, display        // Miscellaneous
+} from './styles';
+```
+
+## Colors
+```jsx
+// Background Colors
+<View style={[bg.primary, bg.secondary, bg.success, bg.danger]}>
+<View style={[bg.warning, bg.info, bg.light, bg.dark]}>
+<View style={[bg.white, bg.black, bg.gray, bg.transparent]}>
+<View style={[bg.gray100, bg.gray200, bg.gray300, bg.gray400]}>
+<View style={[bg.gray500, bg.gray600, bg.gray700, bg.gray800, bg.gray900]}>
+
+// Text Colors  
+<Text style={[text.primary, text.secondary, text.success, text.danger]}>
+<Text style={[text.warning, text.info, text.light, text.dark]}>
+<Text style={[text.white, text.black, text.gray]}>
+<Text style={[text.gray100, text.gray500, text.gray900]}>
+
+// Border Colors
+<View style={[border.primary, border.secondary, border.success]}>
+<View style={[border.gray, border.transparent]}>
+```
+
+## Flexbox (fb)
+```jsx
+// Direction & Basic Flex
+<View style={[fb.flex, fb.flex1, fb.flex2, fb.flex3, fb.flex4, fb.flexNone]}>
+<View style={[fb.row, fb.col, fb.rowReverse, fb.colReverse]}>
+
+// Justify Content (shorter names)
+<View style={[fb.juCenter, fb.juStart, fb.juEnd]}>
+<View style={[fb.juBetween, fb.juAround, fb.juEvenly]}>
+
+// Align Items
+<View style={[fb.aiCenter, fb.aiStart, fb.aiEnd]}>
+<View style={[fb.aiStretch, fb.aiBaseline]}>
+
+// Align Self
+<View style={[fb.asCenter, fb.asStart, fb.asEnd]}>
+<View style={[fb.asStretch, fb.asBaseline, fb.asAuto]}>
+
+// Wrap
+<View style={[fb.wrap, fb.nowrap, fb.wrapReverse]}>
+
+// Common Combinations
+<View style={[fb.center]}>                    {/* center both axes */}
+<View style={[fb.rowCenter]}>                 {/* row + center */}
+<View style={[fb.rowBetween]}>                {/* row + space-between */}
+<View style={[fb.rowAround]}>                 {/* row + space-around */}
+<View style={[fb.colCenter]}>                 {/* column + center */}
+
+// Flex Grow/Shrink (0-12)
+<View style={[flex.grow1, flex.grow2, flex.shrink1]}>
+```
+
+## Spacing
+```jsx
+// Padding (0-100)
+<View style={[p[0], p[4], p[8], p[16], p[24], p[32]]}>
+<View style={[p.t4, p.b8, p.l12, p.r16]}>      {/* specific sides */}
+<View style={[p.x8, p.y12]}>                   {/* horizontal/vertical */}
+
+// Margin (0-100 + negatives)
+<View style={[m[0], m[4], m[8], m[16], m[24]]}>
+<View style={[m.t4, m.b8, m.l12, m.r16]}>      {/* specific sides */}
+<View style={[m.x8, m.y12]}>                   {/* horizontal/vertical */}
+<View style={[m.nt4, m.nb8, m.nl12, m.nr16]}> {/* negative margins */}
+```
+
+## Positioning
+```jsx
+// Position Types
+<View style={[pos.relative, pos.absolute, pos.static]}>
+
+// Position Values (-100 to 100)
+<View style={[inset.t0, inset.b10, inset.l20, inset.r30]}>
+<View style={[inset.t-10, inset.b-20]}>        {/* negative values */}
+
+// Z-Index (0-1000)
+<View style={[z[1], z[10], z[100], z[999]]}>
+
+// Common Positioned Layouts
+<View style={[positioned.topLeft]}>            {/* top: 0, left: 0 */}
+<View style={[positioned.topRight]}>           {/* top: 0, right: 0 */}
+<View style={[positioned.bottomLeft]}>         {/* bottom: 0, left: 0 */}
+<View style={[positioned.bottomRight]}>        {/* bottom: 0, right: 0 */}
+<View style={[positioned.center]}>             {/* absolute center */}
+<View style={[positioned.fill]}>               {/* fill container */}
+```
+
+## Dimensions
+```jsx
+// Width Percentage (1-100%)
+<View style={[w[25], w[50], w[75], w[100]]}>
+<View style={[w.auto, w.full, w.screen]}>
+
+// Height Percentage (1-100%)
+<View style={[h[25], h[50], h[75], h[100]]}>
+<View style={[h.auto, h.full, h.screen]}>
+
+// Pixel-based Dimensions (1-1000px)
+<View style={[wpx[100], wpx[200], wpx[300]]}>
+<View style={[hpx[50], hpx[100], hpx[150]]}>
+
+// Size Combinations
+<View style={[size.full]}>                     {/* 100% x 100% */}
+<View style={[size.screen]}>                   {/* screen dimensions */}
+<View style={[size.square10, size.square20]}>  {/* perfect squares */}
+<View style={[size.square50, size.square100]}>
+```
+
+## Typography
+```jsx
+// Font Sizes (8-72)
+<Text style={[fs[12], fs[16], fs[18], fs[24], fs[32]]}>
+
+// Font Weights
+<Text style={[fw[100], fw[300], fw[400], fw[500]]}>
+<Text style={[fw[600], fw[700], fw[800], fw[900]]}>
+<Text style={[fw.thin, fw.light, fw.normal, fw.medium]}>
+<Text style={[fw.semibold, fw.bold, fw.extrabold, fw.black]}>
+
+// Text Alignment
+<Text style={[ta.left, ta.center, ta.right, ta.justify]}>
+
+// Text Transform
+<Text style={[tt.uppercase, tt.lowercase, tt.capitalize, tt.none]}>
+
+// Text Decoration
+<Text style={[td.underline, td.lineThrough, td.none]}>
+
+// Line Height
+<Text style={[lh.tight, lh.snug, lh.normal, lh.relaxed, lh.loose]}>
+```
+
+## Borders
+```jsx
+// Border Width (0-10)
+<View style={[bw[0], bw[1], bw[2], bw[5]]}>
+<View style={[bw.t2, bw.b3, bw.l4, bw.r5]}>    {/* specific sides */}
+
+// Border Radius (0-50)
+<View style={[br[0], br[4], br[8], br[12], br[20]]}>
+<View style={[br.tl8, br.tr8, br.bl8, br.br8]}> {/* specific corners */}
+<View style={[br.full]}>                        {/* fully rounded */}
+```
+
+## Shadows
+```jsx
+// Shadow Variants
+<View style={[shadow.none]}>                   {/* no shadow */}
+<View style={[shadow.sm]}>                     {/* small shadow */}
+<View style={[shadow.md]}>                     {/* medium shadow */}
+<View style={[shadow.lg]}>                     {/* large shadow */}
+<View style={[shadow.xl]}>                     {/* extra large */}
+<View style={[shadow.xxl]}>                    {/* extra extra large */}
+```
+
+## Miscellaneous
+```jsx
+// Opacity (0-100)
+<View style={[opacity[0], opacity[25], opacity[50], opacity[75], opacity[100]]}>
+<View style={[opacity[10], opacity[20], opacity[90], opacity[95]]}>
+
+// Overflow
+<View style={[overflow.visible, overflow.hidden]}>
+
+// Display
+<View style={[display.flex, display.none]}>
+```
+
+## Usage Examples
+
+### Card Component
+```jsx
+import { bg, p, m, br, shadow, fb, text, fs, fw, ta } from './styles';
+
+const Card = () => (
+  <View style={[
+    bg.white,        // white background
+    p[4],            // padding: 16px
+    m[3],            // margin: 12px  
+    br[8],           // borderRadius: 8px
+    shadow.md,       // medium shadow
+    fb.col,          // flex column
+  ]}>
+    <Text style={[
+      text.dark,     // dark text color
+      fs[18],        // fontSize: 18px
+      fw.semibold,   // fontWeight: 600
+      ta.center,     // textAlign: center
+    ]}>
+      Card Title
+    </Text>
+  </View>
+);
+```
+
+### Floating Action Button
+```jsx
+import { pos, inset, z, w, h, fb, bg, br, shadow, text, fw } from './styles';
+
+const FloatingButton = () => (
+  <View style={[
+    pos.absolute,    // position: absolute
+    inset.b20,       // bottom: 20px
+    inset.r20,       // right: 20px
+    w[16],           // width: 16%
+    h[16],           // height: 16%
+    z[999],          // zIndex: 999
+    fb.center,       // center content
+    bg.primary,      // primary background
+    br.full,         // fully rounded
+    shadow.lg,       // large shadow
+  ]}>
+    <Text style={[text.white, fw.bold]}>+</Text>
+  </View>
+);
+```
+
+### Grid Layout
+```jsx
+import { fb, w, h, bg, m, br } from './styles';
+
+const Grid = () => (
+  <View style={[fb.row, fb.wrap, fb.juBetween]}>
+    {[1,2,3,4,5,6].map(item => (
+      <View key={item} style={[
+        w[30],         // width: 30% (3 columns)
+        h[20],         // height: 20%
+        bg.success,    // green background
+        m[1],          // margin: 4px
+        br[4],         // borderRadius: 4px
+        fb.center,     // center content
+      ]}>
+        <Text style={[text.white, fw.bold]}>{item}</Text>
+      </View>
+    ))}
+  </View>
+);
+```
+
+### Form Input
+```jsx
+import { bg, p, br, bw, border, text, fs } from './styles';
+
+const Input = () => (
+  <TextInput 
+    style={[
+      bg.white,        // white background
+      p[3],            // padding: 12px
+      br[6],           // borderRadius: 6px
+      bw[1],           // borderWidth: 1px
+      border.gray300,  // light gray border
+      text.dark,       // dark text
+      fs[16],          // fontSize: 16px
+    ]}
+    placeholder="Enter text..."
+  />
+);
+```
+
+## Pro Tips
+
+1. **Combine utilities**: Mix different categories for complete styling
+2. **Use semantic combinations**: `fb.rowBetween`, `positioned.center` for common patterns
+3. **Responsive approach**: Start with base styles, add conditionals for different screen sizes
+4. **Performance**: StyleSheet.create() ensures optimal performance
+5. **Consistency**: Stick to the utility system for maintainable code
+
+## Value Ranges Quick Reference
+
+| Utility | Range | Example |
+|---------|-------|---------|
+| Spacing (p, m) | 0-100 | `p[16]`, `m[24]` |
+| Font Size (fs) | 8-72 | `fs[14]`, `fs[24]` |
+| Font Weight (fw) | 100-900 | `fw[400]`, `fw.bold` |
+| Border Width (bw) | 0-10 | `bw[1]`, `bw[2]` |
+| Border Radius (br) | 0-50 | `br[8]`, `br.full` |
+| Opacity | 0-100 | `opacity[50]`, `opacity[75]` |
+| Z-Index (z) | 0-1000 | `z[1]`, `z[999]` |
+| Position (inset) | -100 to 100 | `inset.t10`, `inset.b-5` |
+| Dimensions (w, h) | 1-100% | `w[50]`, `h[75]` |
+| Pixel Dimensions | 1-1000px | `wpx[200]`, `hpx[100]` |
